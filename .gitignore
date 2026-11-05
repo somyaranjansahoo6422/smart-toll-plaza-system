@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Database temp / recovery files
+.db-*.tmp
+*.tmp.db
+cloud_mock_db.corrupt-*.json
+
+# OS / editor
+.DS_Store
+Thumbs.db

@@ -1,61 +1,65 @@
 import streamlit as st
 
+from auth import ROLE_DIRECTOR, attempt_login, init_session_state, logout
+from database import get_dynamic_pricing
+
 st.set_page_config(page_title="NHAI Command Center", page_icon="🛣️", layout="wide")
 
-st.markdown("""
-    <style>
-        .block-container { padding-top: 2rem; }
-        .enterprise-header { font-size: 2.5rem; font-weight: 700; color: #FFFFFF; text-align: center; border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 30px;}
-    </style>
-""", unsafe_allow_html=True)
+init_session_state()
 
-# --- ENTERPRISE IAM (Identity & Access Management) ---
-# In production, this maps to Auth0 or AWS Cognito JWT tokens.
-RBAC_USERS = {
-    "director@nhai.gov": {"pin": "admin88", "role": "Regional Director", "node": "All Nodes (Pan-India)"},
-    "op1@manguli.nhai": {"pin": "toll2026", "role": "Plaza Operator", "node": "Manguli Toll Plaza (Cuttack)"}
-}
 
-if 'user_role' not in st.session_state: st.session_state.user_role = None
-if 'user_node' not in st.session_state: st.session_state.user_node = None
-if 'username' not in st.session_state: st.session_state.username = None
+def login_page():
+    st.title("NHAI national infrastructure gateway")
+    st.caption("Awaiting secure node authentication.")
 
-st.sidebar.markdown("### 🔐 Identity & Access")
+    _, center, _ = st.columns([1, 1.3, 1])
+    with center:
+        with st.form("auth_form"):
+            st.subheader(":material/shield_person: Identity & access")
+            username = st.text_input("Enterprise ID (email)", placeholder="e.g. director@nhai.gov")
+            token = st.text_input("Authentication token", type="password")
+            submitted = st.form_submit_button(
+                "Authenticate securely", type="primary", icon=":material/login:", width="stretch"
+            )
 
-if st.session_state.user_role is None:
-    with st.sidebar.form("auth_form"):
-        username = st.text_input("Enterprise ID (Email)", placeholder="e.g. director@nhai.gov")
-        password = st.text_input("Authentication Token", type="password")
-        submit = st.form_submit_button("Authenticate Securely", use_container_width=True)
-        
-        if submit:
-            if username in RBAC_USERS and RBAC_USERS[username]["pin"] == password:
-                st.session_state.user_role = RBAC_USERS[username]["role"]
-                st.session_state.user_node = RBAC_USERS[username]["node"]
-                st.session_state.username = username
+        if submitted:
+            success, error = attempt_login(username, token)
+            if success:
                 st.rerun()
-            else:
-                st.error("Authentication Failed: Invalid ID or Token.")
-    
-    # Helpful hint for your testing purposes
-    st.sidebar.info("**Demo Accounts:**\n\nDirector: `director@nhai.gov` / `admin88`\n\nOperator: `op1@manguli.nhai` / `toll2026`")
-else:
-    st.sidebar.success(f"✅ **{st.session_state.user_role}**")
-    st.sidebar.info(f"📍 {st.session_state.user_node}")
-    if st.sidebar.button("🔒 Terminate Session", use_container_width=True):
-        st.session_state.user_role = None
-        st.session_state.user_node = None
-        st.session_state.username = None
-        st.rerun()
+            st.error(error, icon=":material/gpp_bad:")
+
+        # Helpful hint for local testing; remove for any shared deployment.
+        with st.expander("Demo accounts"):
+            st.markdown(
+                "| Role | ID | Token |\n|---|---|---|\n"
+                "| Regional Director | `director@nhai.gov` | `admin88` |\n"
+                "| Plaza Operator | `op1@manguli.nhai` | `toll2026` |"
+            )
+
 
 # --- DASHBOARD ROUTING ---
 if st.session_state.user_role is None:
-    st.markdown("<div class='enterprise-header'>NHAI National Infrastructure Gateway</div>", unsafe_allow_html=True)
-    st.warning("Awaiting Secure Node Authentication... Please log in via the IAM sidebar.")
+    page = st.navigation([st.Page(login_page, title="Sign in", icon=":material/login:")])
 else:
-    st.markdown("<div class='enterprise-header'>🛣️ Central Infrastructure Operations</div>", unsafe_allow_html=True)
-    
-    if st.session_state.user_role == "Regional Director":
-        st.success("Welcome, Director. All geographic and financial telemetry subsystems are online. Navigate to GIS Command Center or Analytics.")
-    elif st.session_state.user_role == "Plaza Operator":
-        st.success("Welcome, Operator. ANPR Vision Models are online. Navigate to Live Camera for processing.")
+    home = st.Page("app_pages/home.py", title="Operations overview", icon=":material/dashboard:", default=True)
+    camera = st.Page("app_pages/live_camera.py", title="Live camera", icon=":material/photo_camera:")
+    gis = st.Page("app_pages/gis_command_center.py", title="GIS command center", icon=":material/map:")
+    analytics = st.Page("app_pages/analytics.py", title="Analytics", icon=":material/monitoring:")
+
+    if st.session_state.user_role == ROLE_DIRECTOR:
+        pages = [home, gis, camera, analytics]
+    else:
+        pages = [home, camera, analytics]
+    page = st.navigation({"Operations": pages})
+
+    with st.sidebar:
+        with st.container(border=True):
+            st.markdown(f":material/verified_user: **{st.session_state.user_role}**")
+            st.caption(f":material/location_on: {st.session_state.user_node}")
+            st.caption(f":material/person: {st.session_state.username}")
+        _, is_surge, multiplier = get_dynamic_pricing()
+        if is_surge:
+            st.warning(f"Congestion pricing active (×{multiplier:g})", icon=":material/bolt:")
+        st.button("Terminate session", icon=":material/logout:", on_click=logout, width="stretch")
+
+page.run()
