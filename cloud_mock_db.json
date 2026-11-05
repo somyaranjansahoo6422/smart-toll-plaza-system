@@ -1,1 +1,39 @@
-{"transactions": [{"Transaction_ID": "TXN-DDE3604B8C14", "Timestamp": "2026-07-17 22:55:57", "Plate_Number": "RJILCV0002", "Vehicle_Type": "Car/Jeep/Van", "Lane": "Lane 1", "Payment_Method": "FASTag", "Toll_Collected": 100.0, "Plaza_Location": "All Nodes (Pan-India)", "Is_Exempt": false}], "security_audit": [], "shift_closures": [], "vahan_blacklist": [{"Plate_Number": "OD02AB1234", "Reason": "Stolen Vehicle (Bhubaneswar)"}, {"Plate_Number": "WB11CC9999", "Reason": "Pending Interstate Speeding Challan"}]}
+{
+  "transactions": [
+    {
+      "Transaction_ID": "TXN-DDE3604B8C14",
+      "Timestamp": "2026-07-17 22:55:57",
+      "Plate_Number": "RJILCV0002",
+      "Vehicle_Type": "Car/Jeep/Van",
+      "Lane": "Lane 1",
+      "Payment_Method": "FASTag",
+      "Toll_Collected": 100.0,
+      "Plaza_Location": "All Nodes (Pan-India)",
+      "Is_Exempt": false
+    }
+  ],
+  "security_audit": [],
+  "shift_closures": [],
+  "vahan_blacklist": [
+    {
+      "Plate_Number": "OD02AB1234",
+      "Reason": "Stolen Vehicle (Bhubaneswar)",
+      "Pending_Challan": 0.0
+    },
+    {
+      "Plate_Number": "WB11CC9999",
+      "Reason": "Pending Interstate Speeding Challan",
+      "Pending_Challan": 4500.0
+    },
+    {
+      "Plate_Number": "CG04X7777",
+      "Reason": "FASTag Blacklisted - Insufficient Funds",
+      "Pending_Challan": 0.0
+    },
+    {
+      "Plate_Number": "OR02C1234",
+      "Reason": "Expired Fitness Certificate (Legacy)",
+      "Pending_Challan": 1500.0
+    }
+  ]
+}

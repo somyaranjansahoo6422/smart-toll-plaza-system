@@ -397,7 +397,7 @@ PLAZA CODE,PLAZA NAME,CONCESSIONAIRE TYPE,PLAZA SUB TYPE,STATE,CITY,LATITUDE,LON
 536454,Chandi Toll Plaza,Conc.,NATIONAL,Haryana,Rohtak,29.0071462850968,76.5083047511308
 536465,Jamni NH152-D Toll Plaza,PF,NATIONAL,Haryana,Jind,29.401759,76.489368
 536473,Peelak Toll Plaza,PF,NATIONAL,Haryana,Palwal,28.127789,77.406093
-536539,Bartana Toll Plaza,PF,NATIONAL,Haryana,JIND,29.1625,762849
+536539,Bartana Toll Plaza,PF,NATIONAL,Haryana,JIND,29.1625,76.2849
 536575,Banaundi Toll Plaza,PF,NATIONAL,Haryana,Banaundi,30.4484338,77.0712295
 536647,Bijwasan Toll Plaza,PF,NATIONAL,Haryana,Delhi,28.5336,77.0336
 536664,Mohana Toll Plaza,Public Fun,NATIONAL,Haryana,Sonipat,29.22548,76.522786452
@@ -1279,7 +1279,7 @@ PLAZA CODE,PLAZA NAME,CONCESSIONAIRE TYPE,PLAZA SUB TYPE,STATE,CITY,LATITUDE,LON
 536241,Undwa Toll Plaza,PF,STATE,Rajasthan,Kota,24.616053,75.909212
 536247,Barrod Toll Plaza,Conc.,STATE,Rajasthan,Alwar,27.8926,76.3446
 536248,Jadankhalsa toll Plaza,PF,STATE,Rajasthan,PALI,25.854958,73.479906
-536249,Khejrali Toll Plaza,PF,STATE,Rajasthan,Jodhpur,26.158353,731669180
+536249,Khejrali Toll Plaza,PF,STATE,Rajasthan,Jodhpur,26.158353,73.166918
 536250,Auwa Toll Plaza,PF,STATE,Rajasthan,Marvar Ju,25.614401,73.628414
 536251,Kudi Toll Plaza,PF,STATE,Rajasthan,Bhopalgarh,26.573902,73.452095
 536252,Gwaloo Toll Plaza,PF,STATE,Rajasthan,Kuchera,26.902365,73.768778
@@ -1412,8 +1412,7 @@ PLAZA CODE,PLAZA NAME,CONCESSIONAIRE TYPE,PLAZA SUB TYPE,STATE,CITY,LATITUDE,LON
 536588,Jethana Toll Plaza,Conc.,STATE,Rajasthan,Ajmer,26.298637,74.45369
 536589,Saisara Toll Plaza,Conc.,STATE,Rajasthan,Ajmer,26.581137,74.24303
 536590,Gegalpura Toll Plaza,Conc.,STATE,Rajasthan,Ajmer,26.2195,74.38237
-536591,"Ladpura Toll
-Plaza",Conc.,STATE,Rajasthan,Ajmer,26.516906,74.399223
+536591,Ladpura Toll Plaza,Conc.,STATE,Rajasthan,Ajmer,26.516906,74.399223
 536592,Kheruwala Toll Plaza,Conc.,STATE,Rajasthan,Hanumangarh,29.8454,74.2353
 536598,Rodwal Toll plaza,Conc.,STATE,Rajasthan,Rodwal,28.012597,76.336071
 536599,Parewar Toll Plaza,PF,NATIONAL,Rajasthan,Jaisalmer,27.304704,70.80313
@@ -1923,8 +1922,7 @@ Plaza",Conc.,STATE,Rajasthan,Ajmer,26.516906,74.399223
 536766,Sonic-Km-420 Toll Plaza,PF,STATE,Uttar Pradesh,Unnao,26.585432,80.57144
 536767,Purab Nara-Km-589 Toll Plaza,PF,STATE,Uttar Pradesh,Prayagraj,25.656717,81.748906
 536768,Jagatpur-Km-517 Toll Plaza,PF,STATE,Uttar Pradesh,Raebareli,26.026531,81.282677
-536769,"Naraee-KM
-554 Toll Plaza",PF,STATE,Uttar Pradesh,Manikpur,25.890363,81.563242
+536769,Naraee-KM 554 Toll Plaza,PF,STATE,Uttar Pradesh,Manikpur,25.890363,81.563242
 536770,Sisiya toll plaza,PF,NATIONAL,Uttar Pradesh,Lakshmipur,27.9796,81.189
 536792,RTP141 Toll Plaza,BOT,STATE,Uttar Pradesh,Agra,27.314119,77.908288
 536816,Khadkhadi Toll Plaza,CONC,STATE,Uttar Pradesh,Agra,28.842031,77.777987
@@ -1951,7 +1949,7 @@ Plaza",Conc.,STATE,Rajasthan,Ajmer,26.516906,74.399223
 556062,Karampur Km-243 Toll Plaza,Conc.,STATE,Uttar Pradesh,Auraiya,26.8479,79.3174
 556063,Kakrahi Km-280 Toll Plaza,Conc.,STATE,Uttar Pradesh,Etawah,12.9564,80.2412
 556064,Takha Km-287 Toll Plaza,Conc.,STATE,Uttar Pradesh,Etawah,12.9564,80.2412
-326002,DEORIYA Toll Plaza,Conc.,NATIONAL,Uttarakha,Rudrapur,28.930637,79.475637
+326002,DEORIYA Toll Plaza,Conc.,NATIONAL,Uttarakhand,Rudrapur,28.930637,79.475637
 326005,Banushi Toll Plaza,PF,NATIONAL,Uttarakhand,Dehradun,28.932477,79.929189
 326006,Bhagwanpur Toll Plaza,PF,NATIONAL,Uttarakhand,Bhagwanpur,29.931253,77.820383
 326007,Bhadarabad TOLL PLAZA,PF,NATIONAL,Uttarakhand,Bhadarabad,29.911694,78.020722
