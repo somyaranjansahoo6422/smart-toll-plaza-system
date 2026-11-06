@@ -12,6 +12,8 @@ A full-stack Python simulation of a National Highways Authority of India (NHAI)-
 
 > **Status:** Prototype / simulation. Not connected to any live FASTag, VAHAN, or NHAI production system.
 
+**Related:** [data analysis of the plaza registry](https://github.com/somyaranjansahoo6422/india-toll-network-analysis) · [portfolio](https://somyaranjansahoo6422.github.io/)
+
 ---
 
 ## Table of Contents
@@ -166,7 +168,7 @@ The geospatial registry (`TOLL_PLAZA_LIST @26 may 2026 [CSV].csv`) contains **2,
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/smart-toll-plaza-system.git
+git clone https://github.com/somyaranjansahoo6422/smart-toll-plaza-system.git
 cd smart-toll-plaza-system
 ```
 
