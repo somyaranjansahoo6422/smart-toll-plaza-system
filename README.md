@@ -21,6 +21,10 @@ A full-stack Python simulation of a National Highways Authority of India (NHAI)-
 
 Both repos use the same registry of 2,003 toll plazas. See them together on [my portfolio](https://somyaranjansahoo6422.github.io/).
 
+**Watch it run:** [full demo video (3:52)](portfolio_media/demo/toll-plaza-system-demo.mp4) · [feature clips](portfolio_media/clips) · [screenshots](portfolio_media/screenshots)
+
+**What the data shows:** four states hold 53.6% of the 1,997 plazas left after cleaning, and 29.6% of plazas have another plaza within 10 km in a straight line. [Read the full findings](https://github.com/somyaranjansahoo6422/india-toll-network-analysis#main-findings).
+
 ---
 
 ## Table of Contents
