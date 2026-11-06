@@ -12,12 +12,20 @@ A full-stack Python simulation of a National Highways Authority of India (NHAI)-
 
 > **Status:** Prototype / simulation. Not connected to any live FASTag, VAHAN, or NHAI production system.
 
-**Related:** [data analysis of the plaza registry](https://github.com/somyaranjansahoo6422/india-toll-network-analysis) · [portfolio](https://somyaranjansahoo6422.github.io/)
+## One project, two repos
+
+| Part | Repo | What it holds |
+|---|---|---|
+| **System** (you are here) | [smart-toll-plaza-system](https://github.com/somyaranjansahoo6422/smart-toll-plaza-system) | The working app: number plate reading, toll payments, the GIS map and analytics |
+| **Data and analysis** | [india-toll-network-analysis](https://github.com/somyaranjansahoo6422/india-toll-network-analysis) | The full analysis of the plaza data the app runs on: cleaning log, SQL, findings and an Excel dashboard |
+
+Both repos use the same registry of 2,003 toll plazas. See them together on [my portfolio](https://somyaranjansahoo6422.github.io/).
 
 ---
 
 ## Table of Contents
 
+- [One project, two repos](#one-project-two-repos)
 - [System Architecture](#system-architecture)
 - [Core Modules](#core-modules)
 - [Role-Based Access Control](#role-based-access-control-rbac)
@@ -141,6 +149,8 @@ Authentication is handled in `auth.py`. Credentials are stored only as salted PB
 | `vahan_blacklist` | Seeded at first run | Stolen/defaulter plate registry (with pending challan) checked on every vehicle |
 
 `toll_plaza_odisha.db` is a SQLite mirror of all four collections. Directors can rebuild it from the JSON store at any time (Analytics → Shift reports → *Export SQLite snapshot*), which makes it a ready starting point for migrating to a real SQL engine.
+
+The cleaning, SQL questions and findings for this registry are in the [data and analysis repo](https://github.com/somyaranjansahoo6422/india-toll-network-analysis).
 
 The geospatial registry (`TOLL_PLAZA_LIST @26 may 2026 [CSV].csv`) contains **2,003 plazas** across **26 states/UTs**, with columns: `PLAZA CODE`, `PLAZA NAME`, `CONCESSIONAIRE TYPE`, `PLAZA SUB TYPE`, `STATE`, `CITY`, `LATITUDE`, `LONGITUDE`.
 
