@@ -12,6 +12,8 @@ A full-stack Python simulation of a National Highways Authority of India (NHAI)-
 
 > **Status:** Prototype / simulation. Not connected to any live FASTag, VAHAN, or NHAI production system.
 
+**Where it started:** this is my upgraded version of my Class 12 project at Sainik School Bhubaneswar, the [Toll Plaza Management Service](https://github.com/somyaranjansahoo6422/toll_plaza_system-class_12th-project), which I built with my friend Suman Kumar Behera. I now develop this version on my own.
+
 ## One project, two repos
 
 | Part | Repo | What it holds |
